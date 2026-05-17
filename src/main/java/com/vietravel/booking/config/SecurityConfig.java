@@ -37,9 +37,10 @@ public class SecurityConfig {
                                                 .requestMatchers("/api/customer/**").hasAnyRole("CUSTOMER", "ADMIN")
 
                                                 // ===== VIEW =====
-                                                .requestMatchers("/admin/**").hasRole("ADMIN")
-                                                .requestMatchers("/staff/**").hasAnyRole("STAFF", "ADMIN")
-                                                .requestMatchers("/customer/**").hasAnyRole("CUSTOMER", "ADMIN")
+                                                .requestMatchers("/admin", "/admin/**").hasRole("ADMIN")
+                                                .requestMatchers("/staff", "/staff/**").hasAnyRole("STAFF", "ADMIN")
+                                                .requestMatchers("/customer", "/customer/**")
+                                                .hasAnyRole("CUSTOMER", "ADMIN")
 
                                                 .anyRequest().authenticated())
                                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);

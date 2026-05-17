@@ -6,14 +6,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/staff/inquiries")
-public class StaffContactController {
+@RequestMapping("/staff/profile")
+public class StaffProfileController {
 
      @GetMapping
-     public String inquiries(Model model) {
-          model.addAttribute("pageTitle", "Xử lý thắc mắc");
-          model.addAttribute("activeMenu", "inquiries");
+     public String profile(Model model) {
+          model.addAttribute("pageTitle", "Hồ sơ nhân viên");
+          model.addAttribute("activeMenu", "");
           model.addAttribute("activeSubMenu", "");
-          return "staff/inquiries/index";
+          return "staff/profile/index";
      }
 }
