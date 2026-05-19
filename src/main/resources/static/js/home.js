@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const selected = params.get("tourLineId") || tourLineSelect.getAttribute("data-selected") || "";
         const loadTourLines = async () => {
             try {
-                const res = await fetch("/api/admin/tour-lines?active=true");
+                const res = await fetch("/api/tour-lines?active=true");
                 const items = await res.json().catch(() => []);
                 const opts = (items || [])
                     .filter(x => x && x.isActive !== false)
