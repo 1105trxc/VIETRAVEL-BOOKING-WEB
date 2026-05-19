@@ -59,7 +59,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 18px
+    gap: 18px position: relative;
 }
 
 .brand {
@@ -76,7 +76,8 @@ img {
 }
 
 .brand span {
-    color: var(--primary)
+    color: var(--primary);
+    font-size: 16px;
 }
 
 .nav {
@@ -86,7 +87,7 @@ img {
 }
 
 .nav-link {
-    font-size: 13px;
+    font-size: 15px;
     color: #0b1220;
     position: relative;
     padding: 6px 2px
@@ -433,5 +434,99 @@ img {
 @media (max-width: 768px) {
     .user-name-display {
         display: none;
+    }
+}
+
+/* mega-menu */
+.nav-mega {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 68px;
+    background: #fff;
+    border: 1px solid rgba(229, 231, 235, .9);
+    border-radius: 18px;
+    box-shadow: 0 24px 60px rgba(2, 20, 60, .18);
+    padding: 16px 18px 18px;
+    display: none;
+    z-index: 60;
+}
+
+.nav-mega.open {
+    display: block
+}
+
+.nav-mega-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(229, 231, 235, .9);
+}
+
+.nav-mega-title {
+    font-weight: 900;
+    font-size: 14px;
+    color: #0b1220
+}
+
+.nav-mega-close {
+    border: 1px solid var(--border);
+    background: #fff;
+    border-radius: 10px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 1;
+}
+
+.nav-mega-body {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 14px;
+    padding-top: 12px;
+}
+
+.nav-mega-col {
+    min-width: 0
+}
+
+.nav-mega-title-sm {
+    font-weight: 900;
+    font-size: 13px;
+    margin-bottom: 8px;
+    color: #0b1220;
+}
+
+.nav-mega-list a {
+    display: block;
+    padding: 6px 0;
+    font-weight: 700;
+    font-size: 13px;
+    color: #0b1220;
+}
+
+.nav-mega-list a:hover {
+    color: var(--primary)
+}
+
+.nav-mega-more {
+    margin-top: 8px;
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.nav-mega-empty {
+    color: var(--muted);
+    font-weight: 800;
+    font-size: 13px
+}
+
+@media (max-width:980px) {
+    .nav-mega {
+        display: none !important
     }
 }
