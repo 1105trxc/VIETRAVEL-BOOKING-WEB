@@ -166,4 +166,25 @@ public class TourController {
 
           return "public/tours/detail";
      }
+
+     @GetMapping("/{slug}/dat")
+     public String booking(
+               @PathVariable("slug") String slug,
+               @RequestParam(value = "date", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date,
+               @RequestParam(value = "adultPrice", required = false) BigDecimal adultPrice,
+               @RequestParam(value = "childPrice", required = false) BigDecimal childPrice,
+               Model model) {
+          TourPublicDetailView detail = tourPublicService.getDetailBySlug(slug);
+          BigDecimal resolvedAdult = adultPrice != null ? adultPrice : detail.getBasePrice();
+          BigDecimal resolvedChild = childPrice != null ? childPrice : null;
+
+          model.addAttribute("pageTitle", "Đặt tour");
+          model.addAttribute("activeNav", "destination");
+          model.addAttribute("detail", detail);
+          model.addAttribute("selectedDate", date);
+          model.addAttribute("adultPrice", resolvedAdult);
+          model.addAttribute("childPrice", resolvedChild);
+
+          return "public/bookings/checkout";
+     }
 }

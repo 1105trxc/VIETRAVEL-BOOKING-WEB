@@ -182,7 +182,8 @@
 						<div class="price-value"
 							 th:text="${detail.basePrice != null ? (#numbers.formatDecimal(detail.basePrice, 0, 'COMMA', 0, 'POINT') + ' đ') : '0 đ'}">0 đ</div>
 						<div class="price-note">Giá có thể thay đổi theo ngày khởi hành</div>
-						<button class="price-btn js-book-now" id="bookNowBtn" type="button">Chọn ngày khởi hành</button>
+						<button class="price-btn js-book-now" id="bookNowBtn" type="button"
+								th:attr="data-book-url=@{'/tour/' + ${detail.slug} + '/dat'}">Chọn ngày khởi hành</button>
 					</div>
 
 					<div class="tour-book-card" id="bookCard" style="display:none"
@@ -191,7 +192,8 @@
 						<div class="book-row">Ngày khởi hành: <b id="bookDate">--/--</b></div>
 						<div class="book-row">Giá từ: <b id="bookPrice" th:text="${detail.basePrice != null ? (#numbers.formatDecimal(detail.basePrice, 0, 'COMMA', 0, 'POINT') + ' đ') : '0 đ'}">0 đ</b></div>
 						<div class="book-actions">
-							<button class="price-btn js-book-now" type="button">Tiếp tục đặt</button>
+							<button class="price-btn js-book-now" type="button"
+									th:attr="data-book-url=@{'/tour/' + ${detail.slug} + '/dat'}">Tiếp tục đặt</button>
 						</div>
 					</div>
 				</aside>
